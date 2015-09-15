@@ -71,6 +71,8 @@ acl:
 webuserfrontend:
   build: user-webui-service
 
+webadminfrontend:
+  build: admin-webui-service
 
 aclneo4j:
   image: tpires/neo4j
