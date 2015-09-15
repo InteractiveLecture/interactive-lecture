@@ -1,0 +1,30 @@
+[submodule "discovery-service"]
+	path = discovery-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/discovery-service.git
+[submodule "acl-service"]
+	path = acl-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/acl-service.git
+[submodule "authentication-service"]
+	path = authentication-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/authentication-service.git
+[submodule "java-evaluation-service"]
+	path = java-evaluation-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/java-evaluation-service.git
+[submodule "document-service"]
+	path = document-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/document-service.git
+[submodule "gateway-service"]
+	path = gateway-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/gateway-service.git
+[submodule "id-service"]
+	path = id-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/id-service.git
+[submodule "user-webui-service"]
+	path = user-webui-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/user-webui-service.git
+[submodule "lecture-service"]
+	path = lecture-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/lecture-service.git
+[submodule "media-service"]
+	path = media-service
+	url = git@gitlab.rene-richter.de:interactive-lecture/media-service.git
