@@ -68,14 +68,21 @@ acl:
     - "aclneo4j: neo4j"
     - "sessionredis: sessionredis"
 
+aclneo4j:
+  image: tpires/neo4j
+
 webuserfrontend:
   build: user-webui-service
 
 webadminfrontend:
   build: admin-webui-service
 
-aclneo4j:
-  image: tpires/neo4j
+gateway:
+  build: gateway-service
+  links:
+    - "webuserfrontend: user-web"
+  ports:
+    - "8080:80"
 
 sessionredis:
   image: redis
