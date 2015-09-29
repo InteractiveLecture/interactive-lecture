@@ -28,3 +28,18 @@
 [submodule "media-service"]
 	path = media-service
 	url = git@gitlab.rene-richter.de:interactive-lecture/media-service.git
+[submodule "docker-compose-plugin"]
+	path = docker-compose-plugin
+	url = https://gitlab.rene-richter.de/interactive-lecture/docker-compose-plugin.git
+[submodule "string-compiler-test-framework"]
+	path = string-compiler-test-framework
+	url = https://gitlab.rene-richter.de/interactive-lecture/string-compiler-test-framework.git
+[submodule "string-compiler"]
+	path = string-compiler
+	url = git@gitlab.rene-richter.de:interactive-lecture/string-compiler.git
+[submodule "compiler-service-api"]
+	path = compiler-service-api
+	url = git@gitlab.rene-richter.de:interactive-lecture/compiler-service-api.git
+[submodule "patch-lib"]
+	path = patch-lib
+	url = git@gitlab.rene-richter.de:interactive-lecture/patch-lib.git

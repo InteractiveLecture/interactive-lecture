@@ -1,0 +1,17 @@
+allprojects {
+  apply plugin: 'base'
+}
+
+
+/*task dockerBuild(dependsOn: subprojects.build, type: Exec) {
+  executable 'docker-compose'
+  args 'build'
+}*/
+
+
+task printDependencies << {
+  subprojects.each { sub -> println "$sub.serviceDependencies[0]"}
+}
+
+
+
