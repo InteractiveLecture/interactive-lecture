@@ -1,4 +1,75 @@
+discovery:
+  build: discovery-service
+
+id:
+  build: id-service
+  links: 
+    - "idredis: idredis"
+    - "discovery: discovery-service"  
+
+idredis:
+  image: redis
+
+lecture:
+  build: lecture-service
+  links: 
+    - "discovery: discovery-service"
+    - "lectureneo4j: neo4j"
+
+lectureneo4j:
+  image: tpires/neo4j
 
 
-app-service:
-  image: hello-world
+authentication:
+  build: authentication-service
+  links:
+    - "sessionredis: redis"
+    - "discovery: discovery-service"
+    - "authpostgres: postgres"
+  ports:
+    - "8080:8080"
+authpostgres:
+  image: postgres
+
+javaevaluation:
+  build: java-evaluation-service
+  links:
+    - "discovery: discovery-service"
+    - "javaevaluationredis: java-evaluation-redis"
+
+javaevaluationredis:
+  image: redis
+
+document:
+  build: document-service
+  links:
+    - "discovery: discovery-service"
+    - "documentmongo: mongo"
+documentmongo:
+  image: mongo
+
+media:
+  build: media-service
+  links:
+    - "discovery: discovery-service"
+    - "mediamongo: mongo"
+mediamongo:
+  image: mongo
+
+acl:
+  build: acl-service
+  links:
+    - "discovery: discovery-service"
+    - "aclneo4j: neo4j"
+
+aclneo4j:
+  image: tpires/neo4j
+
+webuserfrontend:
+  build: user-webui-service
+
+webadminfrontend:
+  build: admin-webui-service
+
+sessionredis:
+  image: redis
