@@ -1,75 +1,157 @@
 discovery:
-  build: discovery-service
+  image: progrium/consul
+  expose:
+    - "8500"
+    - "8400"
+    - "53/udp"
+  hostname: "node1"
+  command: "-server -bootstrap"
+
+registrator:
+  image: gliderlabs/registrator
+  volumes:
+    - "/var/run/docker.sock:/tmp/docker.sock"
+  links:
+    - "discovery:discovery"
+  command: "-internal consul://discovery:8500"
+
+gateway:
+  build: gateway-service
+  links:
+    - "discovery:consul"
+  ports:
+    - "8080:80"
+  environment:
+    - "SERVICE_IGNORE=1"
+
+
 
 id:
   build: id-service
   links: 
-    - "idredis: idredis"
-    - "discovery: discovery-service"  
+    - "idredis: redis"
+  environment:
+    - "SERVICE_NAME=id-service"
+    - "SERVICE_TAGS=interactive-lecture,private"
+  expose:
+    - "8080"
 
 idredis:
   image: redis
+  environment:
+    - "SERVICE_IGNORE=1"
+
 
 lecture:
   build: lecture-service
   links: 
-    - "discovery: discovery-service"
     - "lectureneo4j: neo4j"
+  environment:
+    - "SERVICE_NAME=lecture-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
+  expose:
+    - "8080"
 
 lectureneo4j:
   image: tpires/neo4j
-
+  environment:
+    - "SERVICE_IGNORE=1"
 
 authentication:
   build: authentication-service
   links:
-    - "sessionredis: redis"
-    - "discovery: discovery-service"
     - "authpostgres: postgres"
-  ports:
-    - "8080:8080"
+  expose:
+    - "8080"
+  environment:
+    - "SERVICE_NAME=authentication-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
+
 authpostgres:
   image: postgres
+  environment:
+    - "SERVICE_IGNORE=1"
+
 
 javaevaluation:
   build: java-evaluation-service
   links:
-    - "discovery: discovery-service"
-    - "javaevaluationredis: java-evaluation-redis"
+    - "javaevaluationmongo: mongo"
+  expose:
+    - "8080"
+  environment:
+    - "SERVICE_NAME=java-evaluation-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
 
-javaevaluationredis:
-  image: redis
+
+javaevaluationmongo:
+  image: mongo
+  environment:
+    - "SERVICE_IGNORE=1"
 
 document:
   build: document-service
   links:
-    - "discovery: discovery-service"
     - "documentmongo: mongo"
+  expose:
+    - "8080"
+  environment:
+    - "SERVICE_NAME=document-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
+
+
 documentmongo:
   image: mongo
+  environment:
+    - "SERVICE_IGNORE=1"
+
+
 
 media:
   build: media-service
   links:
-    - "discovery: discovery-service"
     - "mediamongo: mongo"
+  expose:
+    - "8080"
+  environment:
+    - "SERVICE_NAME=media-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
+
 mediamongo:
   image: mongo
+  environment:
+    - "SERVICE_IGNORE=1"
+
 
 acl:
   build: acl-service
   links:
-    - "discovery: discovery-service"
-    - "aclneo4j: neo4j"
+    - "aclpostgres: postgres"
+  expose:
+    - "8080"
+  environment:
+    - "SERVICE_NAME=acl-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
 
-aclneo4j:
-  image: tpires/neo4j
+aclpostgres:
+  image: postgresql
+  environment:
+    - "SERVICE_IGNORE=1"
+
 
 webuserfrontend:
   build: user-webui-service
+  expose:
+    - "80"
+  environment:
+    - "SERVICE_NAME=user-webfrontend-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
 
 webadminfrontend:
   build: admin-webui-service
+  expose:
+    - "80"
+  environment:
+    - "SERVICE_NAME=admin-webfrontend-service"
+    - "SERVICE_TAGS=interactive-lecture,public"
 
-sessionredis:
-  image: redis
