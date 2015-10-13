@@ -20,7 +20,7 @@ gateway:
   links:
     - "discovery:consul"
   ports:
-    - "8080:80"
+    - "80:80"
   environment:
     - "SERVICE_IGNORE=1"
 
@@ -71,7 +71,8 @@ authpostgres:
   image: postgres
   environment:
     - "SERVICE_IGNORE=1"
-
+    - "POSTGRES_PASSWORD=users"
+    - "POSTGRES_USER=users"
 
 javaevaluation:
   build: java-evaluation-service
@@ -146,6 +147,8 @@ webuserfrontend:
   environment:
     - "SERVICE_NAME=user-webfrontend-service"
     - "SERVICE_TAGS=interactive-lecture,public"
+  volumes:
+    - "./user-webui-service/build/app:/var/www/html"
 
 webadminfrontend:
   build: admin-webui-service
