@@ -28,10 +28,10 @@
 [submodule "media-service"]
 	path = media-service
 	url = https://github.com/InteractiveLecture/media-service.git
-[submodule "string-compiler-test-framework"]
+[submodule "java-string-compiler-test-framework"]
 	path = string-compiler-test-framework
-	url = https://gitlab.rene-richter.de/interactive-lecture/java-string-compiler-test-framework.git
-[submodule "string-compiler"]
+	url = https://github.com/InteractiveLecture/java-string-compiler-test-framework.git
+[submodule "java-string-compiler"]
 	path = string-compiler
 	url = https://github.com/InteractiveLecture/java-string-compiler.git
 [submodule "compiler-service-api"]
