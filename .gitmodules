@@ -1,45 +1,42 @@
 [submodule "discovery-service"]
 	path = discovery-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/discovery-service.git
+	url = https://github.com/InteractiveLecture/discovery-service.git
 [submodule "acl-service"]
 	path = acl-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/acl-service.git
+	url = https://github.com/InteractiveLecture/acl-service.git
 [submodule "authentication-service"]
 	path = authentication-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/authentication-service.git
+	url = https://github.com/InteractiveLecture/authentication-service.git
 [submodule "java-evaluation-service"]
 	path = java-evaluation-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/java-evaluation-service.git
+	url = https://github.com/InteractiveLecture/java-evaluation-service.git
 [submodule "document-service"]
 	path = document-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/document-service.git
+	url = https://github.com/InteractiveLecture/document-service.git
 [submodule "gateway-service"]
 	path = gateway-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/gateway-service.git
+	url = https://github.com/InteractiveLecture/gateway-service.git
 [submodule "id-service"]
 	path = id-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/id-service.git
+	url = https://github.com/InteractiveLecture/id-service.git
 [submodule "user-webui-service"]
 	path = user-webui-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/user-webui-service.git
+	url = https://github.com/InteractiveLecture/user-webui-service.git
 [submodule "lecture-service"]
 	path = lecture-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/lecture-service.git
+	url = https://github.com/InteractiveLecture/lecture-service.git
 [submodule "media-service"]
 	path = media-service
-	url = git@gitlab.rene-richter.de:interactive-lecture/media-service.git
-[submodule "docker-compose-plugin"]
-	path = docker-compose-plugin
-	url = https://gitlab.rene-richter.de/interactive-lecture/docker-compose-plugin.git
+	url = https://github.com/InteractiveLecture/media-service.git
 [submodule "string-compiler-test-framework"]
 	path = string-compiler-test-framework
-	url = https://gitlab.rene-richter.de/interactive-lecture/string-compiler-test-framework.git
+	url = https://gitlab.rene-richter.de/interactive-lecture/java-string-compiler-test-framework.git
 [submodule "string-compiler"]
 	path = string-compiler
-	url = git@gitlab.rene-richter.de:interactive-lecture/string-compiler.git
+	url = https://github.com/InteractiveLecture/java-string-compiler.git
 [submodule "compiler-service-api"]
 	path = compiler-service-api
-	url = git@gitlab.rene-richter.de:interactive-lecture/compiler-service-api.git
+	url = https://github.com/InteractiveLecture/java-compiler-service-api.git
 [submodule "patch-lib"]
 	path = patch-lib
-	url = git@gitlab.rene-richter.de:interactive-lecture/patch-lib.git
+	url = https://github.com/InteractiveLecture/patch-lib.git
