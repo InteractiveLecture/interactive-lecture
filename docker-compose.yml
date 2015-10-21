@@ -135,9 +135,12 @@ acl:
     - "SERVICE_TAGS=interactive-lecture,public"
 
 aclpostgres:
-  image: postgresql
+  build: acl-service/acl-postgres
   environment:
     - "SERVICE_IGNORE=1"
+    - "POSTGRES_PASSWORD=acl"
+    - "POSTGRES_USER=acl"
+
 
 
 webuserfrontend:
